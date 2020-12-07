@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default TextStyle = ({ ...props }) => {
-    return <Text {...props}>{props.children}</Text>
+export default Text = ({ ...props }) => {
+    return <TextStyle {...props}>{props.children}</TextStyle>
 }
 
-const Text = styled.Text`
+const TextStyle = styled.Text`
     font-family: 'Avenir Next';
     color: ${props => props.color ?? '#FFFFFF'}
 

@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import HomeScreen from './src/components/screens/HomeScreen';
 import LiveScreen from './src/components/screens/LiveScreen';
 import ProfileScreen from './src/components/screens/ProfileScreen';
+import GameScreen from './src/components/screens/GameScreen';
 
 const AppStack = createStackNavigator();
 const TabNav = createBottomTabNavigator();
@@ -18,7 +19,9 @@ const tabBarOptions = {
   style: {
     backgroundColor: '#343434',
     borderTopColor: '#343434',
-    paddingBottom: 12,
+    paddingBottom: 20.0,
+    paddingTop: 20.0,
+    height: 54.0,
   },
 };
 
@@ -48,7 +51,7 @@ const TabNavScreen = () => {
 
           return (
             <TabBarIconContainer focused={focused}>
-              <Entypo name="facebook" size={24} color="#FFFFFF" />
+              <Entypo name={iconName} size={22.0} color="#FFFFFF" />
             </TabBarIconContainer>
           );
         },
@@ -63,11 +66,16 @@ const TabNavScreen = () => {
 export default App = () => {
   return (
     <NavigationContainer>
-      <AppStack.Navigator headerMode="none">
+      <AppStack.Navigator mode='modal' headerMode="none">
         <AppStack.Screen name="App" component={TabNavScreen} />
+        <AppStack.Screen name="GameScreen" component={GameScreen} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
 };
 
-const TabBarIconContainer = styled.View``;
+const TabBarIconContainer = styled.View`
+  backgroundColor: ${props => (props.focused ? '#819ee5' : '#343434')};
+  padding: 4px 16px;
+  border-radius: 32px;
+`;

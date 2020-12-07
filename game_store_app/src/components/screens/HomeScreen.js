@@ -6,7 +6,7 @@ import Text from '../utils/Text';
 import categoryList from '../../data/Categories';
 import games from '../../data/GameData';
 
-export default HomeScreen = () => {
+export default HomeScreen = ({navigation}) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const gamesRef = useRef();
 
@@ -17,12 +17,12 @@ export default HomeScreen = () => {
 
   const GameItem = (game) => {
     return (
-      <Game>
+      <Game onPress={() => navigation.navigate('GameScreen', {game: game})}>
         <GameCover source={game.cover} />
         <GameInfo backgroundColor={game.backgroundColor}>
           <GameImage source={game.cover} />
           <GameTitle>
-            <Text medium bold>
+            <Text heavy medium>
               {game.title}
             </Text>
             <Text>{game.teaser}</Text>
@@ -39,7 +39,7 @@ export default HomeScreen = () => {
       <Header>
         <Text large>
           Hello{' '}
-          <Text large bold>
+          <Text large heavy>
             {' '}
             lambiengcode
           </Text>
