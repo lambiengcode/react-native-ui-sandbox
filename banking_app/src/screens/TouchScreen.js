@@ -5,7 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Text from '../components/Text';
 
-export default TouchScreen = () => {
+export default TouchScreen = ({navigation}) => {
   return (
     <Container>
       <StatusBar barStyle="light-content" backgroundColor="#1e1e1e" />
@@ -13,7 +13,7 @@ export default TouchScreen = () => {
         MyCash
       </Text>
 
-      <Touch>
+      <Touch onLongPress={() => navigation.navigate('Tabs')} delayPressIn={0}>
         <Circle bgColor="#1e1e1e">
           <Circle bgColor="#5196F405">
             <Circle bgColor="#5196f410">
@@ -34,7 +34,7 @@ export default TouchScreen = () => {
           Please very your identify{'\n'}using Touch ID
       </Text>
 
-      <PinAccess>
+      <PinAccess onPress={() => navigation.navigate('Pin')} delayPressIn={0}>
           <MaterialIcons name='lock' color='#964ff0' size={16}/>
           <Text bold margin='0 0 0 8px' color='#964ff0'>Enter Access PIN</Text>
       </PinAccess>
