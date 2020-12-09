@@ -34,7 +34,7 @@ export default TouchScreen = ({navigation}) => {
           Please very your identify{'\n'}using Touch ID
       </Text>
 
-      <PinAccess onPress={() => navigation.navigate('Pin')} delayPressIn={0}>
+      <PinAccess onPress={() => navigation.navigate('PinScreen')} delayPressIn={0}>
           <MaterialIcons name='lock' color='#964ff0' size={16}/>
           <Text bold margin='0 0 0 8px' color='#964ff0'>Enter Access PIN</Text>
       </PinAccess>
