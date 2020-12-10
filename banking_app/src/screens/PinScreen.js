@@ -8,10 +8,14 @@ import NumberPad from '../components/NumberPad';
 export default PinScreen = ({navigation}) => {
   const [pinCount, setPinCount] = useState(0);
   const totalPins = 6;
+  const password = [];
+  const correct = [0, 2, 1, 2, 0, 0];
 
   useEffect(() => {
-    if (pinCount == totalPins) {
-      navigation.navigate('HomeScreen');
+    console.log(password);
+    if (pinCount == totalPins && correct == password) {
+      console.log(password);
+      navigation.navigate('Tabs');
     }
   }, [pinCount]);
 
@@ -34,6 +38,7 @@ export default PinScreen = ({navigation}) => {
   };
 
   const pressKey = (_, index) => {
+    index != 10 ? password.push(index + 1) : password.pop();
     setPinCount((prev) => {
       return index != 10 ? prev + 1 : prev - 1;
     });

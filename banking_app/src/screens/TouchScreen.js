@@ -59,7 +59,7 @@ const Circle = styled.View`
   border-radius: 999px;
 `;
 
-const TouchButton = styled.TouchableOpacity`
+const TouchButton = styled.View`
     background-color: #5196f4;
     padding: 12px;
     border-radius: 100px;
