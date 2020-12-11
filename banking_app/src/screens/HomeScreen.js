@@ -2,10 +2,25 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Feather from 'react-native-vector-icons/Feather';
+import {LineChart} from 'react-native-chart-kit';
 
 import Text from '../components/Text';
+import purchaseData from '../data/purchases';
+import { Dimensions } from 'react-native';
 
 export default HomeScreen = () => {
+
+  const renderPurchase = ({item}) => {
+    <Purchase>
+      <PurchaseInfo>
+        <Text>{item.product}</Text>
+        <Text>{item.store}</Text>
+        <Text>{item.address}</Text>
+      </PurchaseInfo>
+      <Text>{item.price}</Text>
+    </Purchase>
+  }
+  
   return (
     <Container>
       <Header>
@@ -27,6 +42,40 @@ export default HomeScreen = () => {
         Current Balance
       </Text>
 
+      <Chart>
+        <LineChart data={{
+          labels: ['May', 'June', 'July', 'Aug', 'Sept', 'Oct'],
+          datasets: [
+            {
+              data: [
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+              ]
+            }
+          ],
+        }}
+
+          width={Dimensions.get('window').width}
+          height={250}
+          yAxisLabel='$'
+          yAxisSuffix='k'
+          chartConfig = {{
+            backgroundGradientFrom: '#1e1e1e',
+            backgroundGradientTo: '#1e1e1e',
+            color: (opacity = 1) => `rgba(81, 150, 244, ${opacity})`,
+            labelColor: () => `rgba(255, 255, 255, 0.2)`,
+            strokeWidth: 3,
+          }}
+          withVerticalLines={false}
+          withHorizontalLines={false}
+          bezier
+        />
+      </Chart>
+
       <Purchases
         ListHeaderComponent={
           <>
@@ -41,6 +90,8 @@ export default HomeScreen = () => {
             </SearchContainer>
           </>
         }
+
+        data={purchaseData} renderItem={renderPurchase} showsVerticalScrollIndicator={false}
       />
     </Container>
   );
@@ -66,6 +117,10 @@ const ProfilePhoto = styled.Image`
 const Welcome = styled.View`
   flex: 1;
   padding: 0 16px;
+`;
+
+const Chart = styled.View`
+  margin: 32px 0;
 `;
 
 const Purchases = styled.FlatList`
@@ -94,3 +149,7 @@ const Search = styled.TextInput`
   font-family: 'Avenir Next';
   color: #dbdbdb;
 `;
+
+const Purchase = styled.View``;
+
+const PurchaseInfo = styled.View``;
