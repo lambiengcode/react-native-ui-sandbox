@@ -6,7 +6,7 @@ import Text from '../components/Text';
 export default SendRequests = () => {
   return (
     <Container>
-      <Text>CardsScreen</Text>
+      <Text></Text>
     </Container>
   );
 };
