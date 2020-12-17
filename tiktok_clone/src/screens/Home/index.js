@@ -2,26 +2,26 @@ import React from 'react';
 import {View} from 'react-native';
 import Post from '../../components/Post';
 
-const post1 = {
+const posts = {
   id: 'p1',
   videoUri: 'https://d8vywknz0hvjw.cloudfront.net/fitenium-media-prod/videos/45fee890-a74f-11ea-8725-311975ea9616/proccessed_720.mp4',
   user: {
     id: 'u1',
-    username: 'daviddobrik',
-    imageUri: 'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
+    username: 'lambiengcode',
+    imageUri: 'https://avatars2.githubusercontent.com/u/60530946?s=460&u=e342f079ed3571122e21b42eedd0ae251a9d91ce&v=4',
   },
-  description: 'hahahah oh boy @borat',
-  songName: 'NF - The search',
-  songImage: 'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
-  likes: 123,
-  comments: 12,
-  shares: 44,
+  description: 'Blackjack - @Soobin',
+  songName: 'Backjack - Soobin ft Goku',
+  songImage: 'https://avatars2.githubusercontent.com/u/60530946?s=460&u=e342f079ed3571122e21b42eedd0ae251a9d91ce&v=4',
+  likes: 529,
+  comments: 249,
+  shares: 192,
 };
 
 const Home = () => {
   return (
     <View>
-      <Post post={post1} />
+      <Post post={posts} />
     </View>
   );
 };
