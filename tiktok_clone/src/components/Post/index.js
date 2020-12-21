@@ -27,6 +27,18 @@ const Post = (props) => {
     });
   }
 
+  onloadstart = () => {
+    onPlayPausePress(false);
+  }
+
+  onsuspend = () => {
+    onPlayPausePress(true);
+  }
+
+  onended = () => {
+    onPlayPausePress(true);
+  }
+
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={onPlayPausePress}>

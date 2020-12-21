@@ -7,8 +7,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import plusIcon from '../assets/images/plus-icon.png';
-
 const Tab = createBottomTabNavigator();
 
 export default HomeBottomTabNavigator = () => {
@@ -53,8 +51,11 @@ export default HomeBottomTabNavigator = () => {
         options={{
           tabBarIcon: ({}) => (
             <Image
-              source={plusIcon}
-              style={{height: 35, resizeMode: 'contain'}}
+              source={{
+                uri:
+                  'https://firebasestorage.googleapis.com/v0/b/mylife-5ce69.appspot.com/o/plus-icon.png?alt=media&token=7270b5b8-2b67-452d-9d2f-340b0712e91f',
+              }}
+              style={{width: 44, height: 40, resizeMode: 'contain'}}
             />
           ),
           tabBarLabel: () => null,
